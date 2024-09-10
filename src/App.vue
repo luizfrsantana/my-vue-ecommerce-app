@@ -10,8 +10,12 @@
         @cartPage="handleCartPage"
         @homePage="handleHomePage"
       />
-      <div class="main-content">
+      <div v-if="currentPage === 'Home'">
+        <img src="./assets/img/home.jpg" alt="Home" />
+      </div>
 
+      <div class="main-content" v-if="currentPage !== 'Home'">
+        
       <ProductPage 
           :productId="products.length + 1"
           :addingNewProduct="addingNewProduct"
@@ -179,7 +183,8 @@ export default {
 
   .content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 100%;
   }
 
   .sidebar {
